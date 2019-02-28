@@ -1,5 +1,7 @@
 # #FlutterCreate Run submission
 
+![screenshot](screenshot.png)
+
 This my submission for the [FlutterCreate](https://flutter.dev/create) contest which consist of creating a nice use experience in less that 5KB of code.
 
 All the code is available in the [lib/main.dart file](lib/main.dart).
