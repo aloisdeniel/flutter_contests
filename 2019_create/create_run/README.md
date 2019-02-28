@@ -2,7 +2,7 @@
 
 ![screenshot](screenshot.png)
 
-This my submission for the [FlutterCreate](https://flutter.dev/create) contest which consist of creating a nice use experience in less that 5KB of code.
+This my submission for the [FlutterCreate](https://flutter.dev/create) contest which consist of creating a nice user experience in less that 5KB of code.
 
 All the code is available in the [lib/main.dart file](lib/main.dart).
 
@@ -21,4 +21,4 @@ A lot of bad practices are used in this project since the most important factor 
 
 ## Notes 
 
-The prebaked [runs.json file](data/run.json) is generate with the [script](bin/points_gen.d).
+The prebaked [runs.json file](data/run.json) is generated with the [script](bin/points_gen.d).
