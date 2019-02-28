@@ -14,7 +14,6 @@ environment:
 
 dependencies:
   path_drawing: ^0.4.0
-  functional_widget_annotation: ^0.3.0
   flutter_hooks: ^0.2.1
   flutter:
     sdk: flutter

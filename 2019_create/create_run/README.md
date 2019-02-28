@@ -6,6 +6,8 @@ This my submission for the [FlutterCreate](https://flutter.dev/create) contest w
 
 The application is inspired by Running apps and consists of a list of runs. I tried to put as much things in a single little app : custom animated drawing with animated paths, custom data, dynamic user interactions with a swipe that leads to run details (*this allows for comparing details too*).
 
+Also I didn't want to rely on heavy dependencies for nice UI (like Flare, or Widgets) in order to prove that Flutter has everyting needed to create great animated UIs. I just used two packages : `flutter_hooks` for reducing a lot statefull widget declarations, and `path_drawing` for generating paths from string data.
+
 All the code is available in the [lib/main.dart file](lib/main.dart).
 
 ## Disclaimer
