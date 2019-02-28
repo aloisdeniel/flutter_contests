@@ -4,6 +4,8 @@
 
 This my submission for the [FlutterCreate](https://flutter.dev/create) contest which consist of creating a nice user experience in less that 5KB of code.
 
+The application is inspired by Running apps and consists of a list of runs. I tried to put as much things in a single little app : custom animated drawing with animated paths, custom data, dynamic user interactions with a swipe that leads to run details (*this allows for comparing details too*).
+
 All the code is available in the [lib/main.dart file](lib/main.dart).
 
 ## Disclaimer
@@ -21,4 +23,4 @@ A lot of bad practices are used in this project since the most important factor 
 
 ## Notes 
 
-The prebaked [runs.json file](data/run.json) is generated with the [script](bin/points_gen.d).
+The prebaked [runs.json data file](data/run.json) is generated with the [script](bin/points_gen.d) by calling `dart bin/points_gen.d`.

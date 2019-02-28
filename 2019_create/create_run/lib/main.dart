@@ -35,8 +35,8 @@ cr(c, [i, m, h, w, b, r]) => Container(
     height: h,
     width: w,
     child: c);
-t(s, x, y, c) => Opacity(
-    opacity: y,
+t(s, x, o, c) => Opacity(
+    opacity: o,
     child: Transform.translate(offset: of(s.minWidth * x, 0.0), child: c));
 
 var io = Curves.easeInOut;
@@ -54,8 +54,8 @@ var halo = (c, r, x, y, s) => RadialGradient(
 
 void main() => runApp(h((c) => MaterialApp(
     theme: ThemeData.dark(),
-    home: Material(
-      child: FutureBuilder(
+    home: Scaffold(
+      body: FutureBuilder(
           future: useMemoized(() async =>
               jsonDecode(await rootBundle.loadString('data/runs.json'))),
           builder: (c, runs) => runs.hasData ? home(runs.data) : sp()),
