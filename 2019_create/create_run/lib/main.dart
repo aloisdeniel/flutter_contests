@@ -58,7 +58,7 @@ void main() => runApp(h((c) => MaterialApp(
       body: FutureBuilder(
           future: useMemoized(() async =>
               jsonDecode(await rootBundle.loadString('data/runs.json'))),
-          builder: (c, runs) => runs.hasData ? home(runs.data) : sp()),
+          builder: (c, runs) => home(runs.data ?? [])),
     ))));
 
 home(d) => h((c) {
