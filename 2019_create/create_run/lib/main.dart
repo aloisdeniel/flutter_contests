@@ -158,7 +158,8 @@ class LP extends CustomPainter {
       ..drawPath(p, np()..color = blue);
 
     var ps = i["points"] as List;
-    var h = ps.lastWhere((x) => a > x[0] && a <= (x[0] + x[1]), orElse: () => ps.last);
+    var h = ps.lastWhere((x) => a > x[0] && a <= (x[0] + x[1]),
+        orElse: () => ps.last);
     var hp = Tween<Offset>(begin: of(h[2], h[3]), end: of(h[4], h[5]))
         .transform((a - h[0]) / h[1]);
 
