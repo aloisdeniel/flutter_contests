@@ -85,7 +85,7 @@ class GenProxy extends PathProxy {
       [ "Location",  item["place"]],
       [ "Distance",  item["dst"]],
       [ "Duration",  item["duration"]],
-      [ "Average speed",  "${avg}min/km"],
+      [ "Average speed",  "${avg.toStringAsFixed(2)}min/km"],
       [ "Weather",  item["weather"]],
     ];
   }
