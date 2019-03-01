@@ -22,8 +22,8 @@ A lot of bad practices are used in this project since the most important factor 
 * **Accessing json properties with magic strings**: use code generators to generate serializers ([json_serializable](https://github.com/dart-lang/json_serializable)).
 * **Everything in the view** : adopt an architectural pattern (like [BLoC](https://aloisdeniel.com/post/p9OCupX71qaLtGYHpnV0) or [scoped_model](https://github.com/brianegan/scoped_model)) to separate your concerns.
 * **A single file** : use multiple files to simply code organization.
-* **Use built-in class** : for example we would have used `TweenSequence` instead of calculate current `Tween` ourselves in the `CustomPainter`.
+* **Use built-in classes** : for example we would have used `TweenSequence` instead of calculate current `Tween` ourselves in the `CustomPainter`.
 
 ## Notes 
 
-The pre-baked [runs.json data file](data/run.json) is generated with the [script](bin/points_gen.d) by calling `dart bin/points_gen.d`.
+The pre-baked [runs.json data file](data/run.json) is generated with the [script](bin/points_gen.d) by calling `dart bin/points_gen.d`. The `points` could have been generated at runtime without the size limit.
