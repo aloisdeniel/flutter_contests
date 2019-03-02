@@ -12,7 +12,8 @@ du(m) => Duration(milliseconds: m);
 ic(i, c) => Icon(i, color: c);
 ei(v) => EdgeInsets.all(v ?? 0);
 of([x = 0.0, y = 0.0]) => Offset(x, y);
-lb(t, s, c, w) => Text(t, textAlign: TextAlign.center,
+lb(t, s, c, w) => Text(t,
+    textAlign: TextAlign.center,
     style: TextStyle(color: c, fontSize: s, fontWeight: FontWeight.values[w]));
 sp() => SizedBox(height: m1, width: m2 / 2);
 flex(w, [d = 0, m = 2, c = 2, l = 1]) => Flex(
@@ -62,18 +63,18 @@ run(c) => h((c) {
           flex(<Widget>[
             lb('$i', 52.0, light, 8),
             lb('${(i * 0.003).toStringAsFixed(3)}km', 44.0, green, 8),
-          ], 1, 2 , 3)) as Widget;
+          ], 1, 2, 3)) as Widget;
     });
-
 home() => h((c) => sca(
       light,
       Icons.directions_run,
       () => Navigator.push(
-          c, PageRouteBuilder(
-            opaque: false, 
-            transitionsBuilder: (BuildContext context, Animation<double> a, Animation<double> _, Widget child) => tr(a.value, 0.0, child),
-            transitionDuration: du(500),
-            pageBuilder: (c,a,aa) => run(c))),
+          c,
+          PageRouteBuilder(
+              opaque: false,
+              transitionsBuilder: (c, a, _, w) => tr(a.value, 0.0, w),
+              transitionDuration: du(500),
+              pageBuilder: (c, a, aa) => run(c))),
       FutureBuilder(
           future: useMemoized(() async =>
               jsonDecode(await rootBundle.loadString('data/runs.json'))),
