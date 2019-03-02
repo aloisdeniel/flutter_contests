@@ -6,7 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'dart:convert';
 import 'hooks.dart';
 
-h(f) => HookBuilder(builder: f);
+h(f) => HookBuilder(builder: (c) => f(c) as Widget);
 c(v) => Color(v);
 du(m) => Duration(milliseconds: m);
 ic(i, c) => Icon(i, color: c);
@@ -21,7 +21,7 @@ flex(w, [d = 0, m = 2, c = 2, l = 1]) => Flex(
     mainAxisAlignment: MainAxisAlignment.values[m],
     crossAxisAlignment: CrossAxisAlignment.values[c],
     textDirection: TextDirection.values[l],
-    children: w);
+    children: w.cast<Widget>());
 cr(c, [i, m, h, w, b, r]) => Container(
     margin: ei(m),
     padding: ei(i),
@@ -60,10 +60,10 @@ run(c) => h((c) {
           dark.withAlpha(240),
           Icons.close,
           () => Navigator.pop(c),
-          flex(<Widget>[
-            lb('$i', 52.0, light, 8),
-            lb('${(i * 0.003).toStringAsFixed(3)}km', 44.0, green, 8),
-          ], 1, 2, 3)) as Widget;
+          flex([
+            lb('${i~/60}:${i%60}', 52.0, light, 8),
+            lb('${(i * 0.0005).toStringAsFixed(3)}km', 44.0, green, 8),
+          ], 1, 2, 3));
     });
 home() => h((c) => sca(
       light,
@@ -73,13 +73,12 @@ home() => h((c) => sca(
           PageRouteBuilder(
               opaque: false,
               transitionsBuilder: (c, a, _, w) => tr(a.value, 0.0, w),
-              transitionDuration: du(500),
               pageBuilder: (c, a, aa) => run(c))),
       FutureBuilder(
           future: useMemoized(() async =>
               jsonDecode(await rootBundle.loadString('data/runs.json'))),
           builder: (c, runs) => tabs(runs.data ?? [])),
-    ) as Widget);
+    ));
 tabs(d) => h((c) {
       var sc = useScrollController.tracking();
       var p = usePageController(initialPage: 1);
@@ -106,7 +105,7 @@ list(it, c, h, l, b, p, s, x, o) => tr(
       itemBuilder: (c, i) => i == 0 ? header(h, l, p) : b(it[i - 1]),
     ));
 header(t, l, p) => cr(
-    flex(<Widget>[
+    flex([
       lb(t, 2 * m1, dark, 8),
       Spacer(),
       IconButton(
@@ -125,12 +124,12 @@ overview(i, aa) => h((c) {
       var a = useAnimation(ac);
       var color = clerp(((a - 0.5) * 2.0).abs());
       return cr(
-          flex(<Widget>[
+          flex([
             lb(i["date"], m2, light, 3),
             sp(),
             line(i, a),
             sp(),
-            flex(<Widget>[
+            flex([
               ic(Icons.place, color),
               lb(i["place"], m2, light, 4),
             ]),
@@ -142,12 +141,12 @@ overview(i, aa) => h((c) {
           340.0,
           null,
           dark,
-          m1) as Widget;
+          m1);
     });
 detail(item, a) => cr(
     flex(
         (item["stats"] as List)
-            .expand<Widget>(
+            .expand(
                 (s) => [lb(s[0], m2, blue, 3), lb(s[1], m2, light, 8), sp()])
             .toList()
               ..add(graph(item, a)),
@@ -160,7 +159,7 @@ detail(item, a) => cr(
     m1);
 graph(item, a) => flex(
     (item["wayp"] as List)
-        .expand<Widget>((x) => [
+        .expand((x) => [
               sp(),
               cr(sp(), 0.0, 0.0, 4.0 + x * io.transform(a) * 34.0, 4.0,
                   clerp(x * a), 2.0)
