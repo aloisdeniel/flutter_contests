@@ -86,8 +86,8 @@ class GenProxy extends PathProxy {
       [ "Distance",  item["dst"]],
       [ "Duration",  item["duration"]],
       [ "Average speed",  "${avg.toStringAsFixed(2)}min/km"],
-      [ "Weather",  item["weather"]],
     ];
+    item["wayp"] = List.generate(18, (i) => r.nextDouble());
   }
 
   void _updateLast(Point p) {

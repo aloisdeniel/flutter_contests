@@ -6,7 +6,9 @@ This my submission for the [FlutterCreate](https://flutter.dev/create) contest w
 
 The application is inspired by Running apps and consists of a list of runs. I tried to put as much things in a single little app : custom animated drawing with animated paths, custom data, dynamic user interactions with a swipe that leads to run details (*this allows for comparing details too*).
 
-Also I didn't want to rely on heavy dependencies for nice UI (like Flare, or Widgets) in order to prove that Flutter has everyting needed to create great animated UIs. I just used two packages : `flutter_hooks` for reducing a lot statefull widget declarations, and `path_drawing` for generating paths from string data.
+Also I didn't want to rely on heavy dependencies for nice UI (like Flare, or Widgets) in order to prove that Flutter has everyting needed to create great animated UIs. I still wanted to produce something that feels like a real app!
+
+ I just used two packages : `flutter_hooks` for reducing a lot statefull widget declarations, and `path_drawing` for generating paths from string data.
 
 All the code is available in the [lib/main.dart file](lib/main.dart).
 
@@ -22,7 +24,8 @@ A lot of bad practices are used in this project since the most important factor 
 * **Accessing json properties with magic strings**: use code generators to generate serializers ([json_serializable](https://github.com/dart-lang/json_serializable)).
 * **Everything in the view** : adopt an architectural pattern (like [BLoC](https://aloisdeniel.com/post/p9OCupX71qaLtGYHpnV0) or [scoped_model](https://github.com/brianegan/scoped_model)) to separate your concerns.
 * **A single file** : use multiple files to simply code organization.
-* **Use built-in classes** : for example we would have used `TweenSequence` instead of calculate current `Tween` ourselves in the `CustomPainter`.
+* **No built-in classes** : for example we would have used `TweenSequence` instead of calculate current `Tween` ourselves in the `CustomPainter`.
+* **Updating too much UI** : make stateful widgets only where you need updates and don't include parts that don't change when the state is updated.
 
 ## Notes 
 
