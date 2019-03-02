@@ -90,31 +90,39 @@ header(t, l, p) => cr(
       IconButton(
           onPressed: () =>
               p.animateToPage(l ? 0 : 1, curve: io, duration: du(300)),
-          icon: ic(l ? Icons.arrow_forward_ios : Icons.arrow_back_ios, dark))
+          icon: ic(l ? Icons.arrow_forward : Icons.arrow_back, dark))
     ], 0, 2, 2, l ? 1 : 0),
     m1,
     0.0,
     100.0);
 
-overview(i) => cr(
-    flex(<Widget>[
-      lb(i["date"], m2, light, 3),
-      sp(),
-      line(i),
-      sp(),
-      flex(<Widget>[
-        ic(Icons.place, green),
-        lb(i["place"], m2, light, 4),
-      ]),
-      lb(i["dst"], 36.0, light, 8),
-      lb(i["duration"], m1, green, 7),
-    ], 1),
-    0.0,
-    m1,
-    340.0,
-    null,
-    dark,
-    m1);
+overview(i) => h((c) {
+      var ac = useAnimationController(duration: du(3000));
+      useEffect(() {
+        ac.repeat();
+      });
+      var a = useAnimation(ac);
+      var color = Color.lerp(green, blue, ((a - 0.5) * 2.0).abs());
+      return cr(
+          flex(<Widget>[
+            lb(i["date"], m2, light, 3),
+            sp(),
+            line(i, a),
+            sp(),
+            flex(<Widget>[
+              ic(Icons.place, color),
+              lb(i["place"], m2, light, 4),
+            ]),
+            lb(i["dst"], 36.0, light, 8),
+            lb(i["duration"], m1, color, 7),
+          ], 1),
+          0.0,
+          m1,
+          340.0,
+          null,
+          dark,
+          m1) as Widget;
+    });
 
 detail(item) => cr(
     flex(
@@ -131,15 +139,8 @@ detail(item) => cr(
     sDark,
     m1);
 
-line(item) => h((c) {
-      var ac = useAnimationController(duration: du(3000));
-      useEffect(() {
-        ac.repeat();
-        return () {};
-      });
-      return cr(CustomPaint(painter: LP(item, io.transform(useAnimation(ac)))),
-          3.0, 0.0, 150.0, 150.0) as Widget;
-    });
+line(item, a) =>
+    cr(CustomPaint(painter: LP(item, io.transform(a))), 3.0, 0.0, 150.0, 150.0);
 
 class LP extends CustomPainter {
   var i;
@@ -163,7 +164,7 @@ class LP extends CustomPainter {
     var ps = i["points"] as List;
     var h = ps.lastWhere((x) => a > x[0] && a <= (x[0] + x[1]),
         orElse: () => ps.last);
-    var hp = Offset.lerp(of(h[2], h[3]), of(h[4], h[5]),(a - h[0]) / h[1]);
+    var hp = Offset.lerp(of(h[2], h[3]), of(h[4], h[5]), (a - h[0]) / h[1]);
 
     ha(x, r) => c.drawPath(
         p, np()..shader = halo(x, r, hp.dx / s.width, hp.dy / s.width, s));
