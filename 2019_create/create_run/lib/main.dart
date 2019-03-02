@@ -56,19 +56,24 @@ run(c) => h((c) {
       final sm = useMemoized(() => Stream.periodic(du(1000), (i) => i));
       final i = useStream(sm).data ?? 0;
       return sca(
-          dark,
+          dark.withAlpha(240),
           Icons.close,
           () => Navigator.pop(c),
           flex(<Widget>[
             lb('$i', 52.0, light, 8),
-            lb('${(i * 0.003).toStringAsFixed(3)}km', m1, green, 8),
+            lb('${(i * 0.003).toStringAsFixed(3)}km', 44.0, green, 8),
           ], 1, 2 , 3)) as Widget;
     });
+
 home() => h((c) => sca(
       light,
       Icons.directions_run,
       () => Navigator.push(
-          c, MaterialPageRoute(fullscreenDialog: true, builder: (c) => run(c))),
+          c, PageRouteBuilder(
+            opaque: false, 
+            transitionsBuilder: (BuildContext context, Animation<double> a, Animation<double> _, Widget child) => tr(a.value, 0.0, child),
+            transitionDuration: du(500),
+            pageBuilder: (c,a,aa) => run(c))),
       FutureBuilder(
           future: useMemoized(() async =>
               jsonDecode(await rootBundle.loadString('data/runs.json'))),
