@@ -12,7 +12,7 @@ du(m) => Duration(milliseconds: m);
 ic(i, c) => Icon(i, color: c);
 ei(v) => EdgeInsets.all(v ?? 0);
 of([x = 0.0, y = 0.0]) => Offset(x, y);
-lb(t, s, c, w) => Text(t,
+lb(t, s, c, w) => Text(t, textAlign: TextAlign.center,
     style: TextStyle(color: c, fontSize: s, fontWeight: FontWeight.values[w]));
 sp() => SizedBox(height: m1, width: m2 / 2);
 flex(w, [d = 0, m = 2, c = 2, l = 1]) => Flex(
@@ -52,19 +52,18 @@ var halo = (c, r, x, y, s) => RadialGradient(
         center: Alignment((x - 0.5) * 2, (y - 0.5) * 2))
     .createShader(of() & s);
 main() => runApp(MaterialApp(theme: ThemeData.dark(), home: home()));
-
 run(c) => h((c) {
       final sm = useMemoized(() => Stream.periodic(du(1000), (i) => i));
       final i = useStream(sm).data ?? 0;
-      return sca(dark, Icons.close, () => Navigator.pop(c),
+      return sca(
+          dark,
+          Icons.close,
+          () => Navigator.pop(c),
           flex(<Widget>[
             lb('$i', 52.0, light, 8),
             lb('${(i * 0.003).toStringAsFixed(3)}km', m1, green, 8),
-          ],
-        1)) as Widget;
-
+          ], 1, 2 , 3)) as Widget;
     });
-
 home() => h((c) => sca(
       light,
       Icons.directions_run,
@@ -75,7 +74,6 @@ home() => h((c) => sca(
               jsonDecode(await rootBundle.loadString('data/runs.json'))),
           builder: (c, runs) => tabs(runs.data ?? [])),
     ) as Widget);
-
 tabs(d) => h((c) {
       var sc = useScrollController.tracking();
       var p = usePageController(initialPage: 1);
@@ -118,7 +116,6 @@ overview(i, aa) => h((c) {
       useEffect(() {
         ac.repeat();
       });
-
       var a = useAnimation(ac);
       var color = clerp(((a - 0.5) * 2.0).abs());
       return cr(
@@ -155,7 +152,6 @@ detail(item, a) => cr(
     null,
     sDark,
     m1);
-
 graph(item, a) => flex(
     (item["wayp"] as List)
         .expand<Widget>((x) => [
@@ -168,7 +164,6 @@ graph(item, a) => flex(
     0,
     2,
     1);
-
 line(item, a) =>
     cr(CustomPaint(painter: LP(item, io.transform(a))), 3.0, 0.0, 150.0, 150.0);
 
