@@ -14,7 +14,8 @@ environment:
 
 dependencies:
   path_drawing: ^0.4.0
-  flutter_hooks: ^0.2.1
+  flutter_hooks:
+    git: git://github.com/aloisdeniel/flutter_hooks.git
   flutter:
     sdk: flutter
 
@@ -23,7 +24,6 @@ dependencies:
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
-  functional_widget: ^0.4.0
   build_runner: ^1.1.2
   flutter_test:
     sdk: flutter
