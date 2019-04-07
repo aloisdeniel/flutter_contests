@@ -23,9 +23,9 @@ A lot of bad practices are used in this project since the most important factor 
 * **Functions for widgets** : Classes should be declared for widgets instead of functions (or use [functional_widget](https://github.com/rrousselGit/functional_widget) to generate them).
 * **Accessing json properties with magic strings**: use code generators to generate serializers ([json_serializable](https://github.com/dart-lang/json_serializable)).
 * **Everything in the view** : adopt an architectural pattern (like [BLoC](https://aloisdeniel.com/post/p9OCupX71qaLtGYHpnV0) or [scoped_model](https://github.com/brianegan/scoped_model)) to separate your concerns.
-* **A single file** : use multiple files to simply code organization.
+* **A single file** : use multiple files to simplify code organization.
 * **No built-in classes** : for example we would have used `TweenSequence` instead of calculate current `Tween` ourselves in the `CustomPainter`.
-* **Updating too much UI** : make stateful widgets only where you need updates and don't include parts that don't change when the state is updated.
+* **Updating too much UI** : make stateful widgets only when you need updates and don't include parts that don't change when the state is updated.
 
 ## Notes 
 
