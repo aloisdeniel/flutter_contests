@@ -32117,7 +32117,7 @@
       color = Q.Color_lerp($.$get$blue(), $.$get$green(), Math.abs((a - 0.5) * 2));
       t1 = this.i;
       t2 = J.getInterceptor$asx(t1);
-      return F.box(F.flex([F.txt(t2.$index(t1, "date"), 12, C.Color_4294967295, 3), $.$get$sp(), new T.SizedBox(150, 150, T.CustomPaint$(_null, _null, new F.LP(t1, C.Cubic_xDo0.transform$1(0, a), color, _null)), _null), $.$get$sp(), F.flex([L.Icon$(C.IconData_58719_MaterialIcons_false, color), F.txt(t2.$index(t1, "place"), 12, C.Color_4294967295, 4)], 0, 2, 2, 1), F.txt(t2.$index(t1, "dst"), 36, C.Color_4294967295, 8), F.txt(t2.$index(t1, "duration"), 24, color, 7)], 1, 2, 2, 1), 0, 24, 340, _null, $.$get$dark(), 24);
+      return F.box(F.flex([F.txt(t2.$index(t1, "date"), 12, C.Color_4294967295, 3), $.$get$sp(), new T.SizedBox(150, 150, T.CustomPaint$(_null, _null, new F.LP(t1, C.Cubic_xDo0.transform$1(0, a), color, _null)), _null), $.$get$sp(), F.flex([L.Icon$(C.IconData_58719_MaterialIcons_false, color), F.txt(t2.$index(t1, "place"), 12, C.Color_4294967295, 4)], 0, 2, 2, 1), F.txt(t2.$index(t1, "dst"), 36, C.Color_4294967295, 8), F.txt(t2.$index(t1, "duration"), 24, color, 6)], 1, 2, 2, 1), 0, 24, 340, _null, $.$get$dark(), 24);
     },
     $signature: 4
   };

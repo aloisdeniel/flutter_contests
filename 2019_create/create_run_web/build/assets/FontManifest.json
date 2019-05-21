@@ -1,10 +1,30 @@
 [
     {
-      "family": "MaterialIcons",
-      "fonts": [
-        {
-          "asset": "https://fonts.gstatic.com/s/materialicons/v42/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2"
-        }
-      ]
+        "family": "MaterialIcons",
+        "fonts": [
+            {
+                "asset": "https://fonts.gstatic.com/s/materialicons/v42/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2"
+            }
+        ]
+    },
+    {
+        "family": "Roboto",
+        "fonts": [
+            {
+                "asset": "https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2",
+                "weight": 300
+            },
+            {
+                "asset": "https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2"
+            },
+            {
+                "asset": "https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfCRc4AMP6lbBP.woff2",
+                "weight": 700
+            },
+            {
+                "asset": "https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfCRc4AMP6lbBP.woff2",
+                "weight": 900
+            }
+        ]
     }
 ]

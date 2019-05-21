@@ -129,7 +129,7 @@ overview(i, aa) => h((c) {
               txt(i["place"], m2, light, 4),
             ]),
             txt(i["dst"], 36.0, light, 8),
-            txt(i["duration"], m1, color, 7),
+            txt(i["duration"], m1, color, 6),
           ], 1),
           0.0,
           m1,
